@@ -1,5 +1,5 @@
 import (
-		"html/template"
+	"html/template"
 )
 
 
@@ -12,7 +12,7 @@ func mainPage(w http.ResponseWriter, r *http.Request) {
 		log.Println(err.Error())
 	}
 
-	t.Execute(w, p) // merge.
+	t.Execute(w, p)
 }
 
 
