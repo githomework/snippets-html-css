@@ -16,3 +16,23 @@ func mainPage(w http.ResponseWriter, r *http.Request) {
 }
 
 
+/*
+
+{{define "main"}}
+<!doctype html>
+<html>
+<head>
+<title></title>
+</head>
+<body style="background-color: #F1F1F1">
+
+
+
+
+
+
+</body>
+</html>
+{{end}}
+
+*/
