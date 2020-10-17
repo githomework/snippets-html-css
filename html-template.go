@@ -2,17 +2,30 @@ import (
 	"html/template"
 )
 
+func pageString(printer string) string {
+	p := &struct {
+		CreateUrl string
+		Printer   string
+	}{
+		SubmitUrl: "/something/submit",
+		Printer:   printer,
+	}
 
-func mainPage(w http.ResponseWriter, r *http.Request) {
-
-	p := struct{}{}
 	t := template.New("main")                             // Create a template.
-	t, err := t.ParseFiles(global.Folder + "\\main.html") // Parse template file.
+	t, err := t.ParseFiles(global.Folder + "\\html.html") // Parse template file.
 	if err != nil {
 		log.Println(err.Error())
 	}
 
-	t.Execute(w, p)
+	var b bytes.Buffer
+	t.Execute(&b, p)
+
+	return b.String()
+
+}
+
+func mainPage(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, pageString("printer name"))
 }
 
 
